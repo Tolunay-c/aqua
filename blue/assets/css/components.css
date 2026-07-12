@@ -1,0 +1,248 @@
+/* ============================================================
+   AQUA TOUCH — Components v2
+   ============================================================ */
+
+/* ---------- Butonlar ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  padding: 14px 28px;
+  border-radius: var(--r-full);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  line-height: 1;
+  border: 1.5px solid transparent;
+  transition: all var(--dur) var(--ease);
+}
+.btn:active { transform: scale(0.97); }
+.btn svg { width: 18px; height: 18px; transition: transform var(--dur) var(--ease); }
+.btn:hover svg { transform: translateX(3px); }
+
+.btn--accent { background: var(--c-accent); color: #fff; box-shadow: var(--shadow-accent); }
+.btn--accent:hover { background: var(--c-accent-hover); color: #fff; transform: translateY(-2px); }
+
+.btn--primary { background: var(--c-primary); color: #fff; box-shadow: var(--shadow-primary); }
+.btn--primary:hover { background: var(--c-primary-dark); color: #fff; transform: translateY(-2px); }
+
+.btn--outline { background: transparent; border-color: var(--c-border); color: var(--c-text); }
+.btn--outline:hover { border-color: var(--c-primary); color: var(--c-primary); background: var(--c-primary-soft); }
+
+.btn--white { background: #fff; color: var(--c-deep); }
+.btn--white:hover { background: var(--c-primary-soft); color: var(--c-deep); transform: translateY(-2px); }
+
+.btn--ghost { color: var(--c-primary); padding-inline: var(--sp-4); font-weight: 700; }
+.btn--ghost:hover { background: var(--c-primary-soft); }
+
+.btn--lg { padding: 18px 36px; font-size: var(--fs-base); }
+.btn--block { width: 100%; }
+.btn[disabled] { opacity: .55; pointer-events: none; }
+
+/* ---------- Badge / pill ---------- */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 6px 14px;
+  border-radius: var(--r-full);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  font-family: var(--font-display);
+  background: var(--c-primary-soft);
+  color: var(--c-primary-dark);
+}
+.pill svg { width: 14px; height: 14px; }
+.pill--green  { background: var(--c-green-soft); color: #2E8C2B; }
+.pill--accent { background: var(--c-accent-soft); color: var(--c-accent-hover); }
+
+/* ---------- Ürün kartı ---------- */
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--c-bg);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: box-shadow var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out), border-color var(--dur);
+}
+.product-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-6px);
+  border-color: transparent;
+}
+.product-card__media {
+  position: relative;
+  padding: var(--sp-6);
+  background: linear-gradient(180deg, var(--c-surface), #EAF4FA);
+}
+.product-card__media .ph { border: none; background: transparent; }
+.product-card__badge { position: absolute; top: var(--sp-4); left: var(--sp-4); z-index: 2; }
+.product-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: var(--sp-6);
+  flex: 1;
+}
+.product-card__cat {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--c-primary);
+}
+.product-card__body h3 { font-size: var(--fs-md); }
+.product-card__body h3 a { color: inherit; }
+.product-card__body h3 a:hover { color: var(--c-primary); }
+.product-card__desc { font-size: var(--fs-sm); color: var(--c-text-muted); }
+.product-card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  margin-top: auto;
+  padding-top: var(--sp-4);
+}
+.product-card__price {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-lg);
+  color: var(--c-deep);
+}
+.product-card__price small {
+  display: block;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--c-text-light);
+}
+
+/* ---------- İkonlu özellik ---------- */
+.feature {
+  display: flex;
+  gap: var(--sp-4);
+  align-items: flex-start;
+  padding: var(--sp-6);
+  background: var(--c-bg);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+}
+.feature__icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--r-md);
+  background: var(--c-primary-soft);
+  color: var(--c-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.feature__icon--green  { background: var(--c-green-soft); color: var(--c-green); }
+.feature__icon--accent { background: var(--c-accent-soft); color: var(--c-accent); }
+.feature__icon svg { width: 26px; height: 26px; }
+.feature h3 { font-size: var(--fs-base); margin-bottom: var(--sp-1); }
+.feature p { font-size: var(--fs-sm); color: var(--c-text-muted); }
+
+/* ---------- Form ---------- */
+.form-group { margin-bottom: var(--sp-5); }
+.form-label { display: block; font-size: var(--fs-sm); font-weight: 600; margin-bottom: var(--sp-2); }
+.form-label .req { color: var(--c-error); }
+
+.form-input, .form-textarea, .form-select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-bg);
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  outline: none;
+  border-color: var(--c-primary);
+  box-shadow: 0 0 0 4px rgb(0 173 239 / .12);
+}
+.form-textarea { min-height: 140px; resize: vertical; }
+
+.form-input.is-invalid, .form-textarea.is-invalid { border-color: var(--c-error); }
+.form-error { display: none; font-size: var(--fs-xs); color: var(--c-error); margin-top: var(--sp-1); }
+.has-error .form-error { display: block; }
+
+.form-check { display: flex; gap: var(--sp-3); align-items: flex-start; font-size: var(--fs-sm); color: var(--c-text-muted); }
+.form-check input { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--c-primary); flex-shrink: 0; }
+
+/* ---------- Toast ---------- */
+.toast-container {
+  position: fixed;
+  top: var(--sp-5);
+  right: var(--sp-5);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  max-width: 380px;
+}
+@media (max-width: 639px) { .toast-container { left: var(--sp-4); right: var(--sp-4); max-width: none; } }
+
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  background: var(--c-bg);
+  border: 1px solid var(--c-border);
+  border-left: 4px solid var(--c-primary);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-lg);
+  animation: toast-in var(--dur-slow) var(--ease-out);
+  font-size: var(--fs-sm);
+}
+.toast--success { border-left-color: var(--c-success); }
+.toast--error   { border-left-color: var(--c-error); }
+.toast__icon { flex-shrink: 0; width: 20px; height: 20px; margin-top: 1px; }
+.toast--success .toast__icon { color: var(--c-success); }
+.toast--error .toast__icon   { color: var(--c-error); }
+.toast--info .toast__icon    { color: var(--c-primary); }
+.toast__msg strong { display: block; margin-bottom: 2px; }
+.toast__close { margin-left: auto; color: var(--c-text-light); padding: 2px; }
+.toast__close:hover { color: var(--c-text); }
+.toast__close svg { width: 16px; height: 16px; }
+.toast.is-hiding { animation: toast-out var(--dur) var(--ease) forwards; }
+
+@keyframes toast-in { from { opacity: 0; transform: translateX(24px); } }
+@keyframes toast-out { to { opacity: 0; transform: translateX(24px); } }
+
+/* ---------- Check listesi ---------- */
+.check-list li { display: flex; gap: var(--sp-3); align-items: flex-start; margin-bottom: var(--sp-3); }
+.check-list svg { width: 20px; height: 20px; flex-shrink: 0; margin-top: 3px; color: var(--c-green); }
+
+/* ---------- Tab (ürün filtre) ---------- */
+.tabs {
+  display: inline-flex;
+  gap: var(--sp-1);
+  padding: var(--sp-1);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-full);
+}
+.tabs button {
+  padding: 10px 22px;
+  border-radius: var(--r-full);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  color: var(--c-text-muted);
+  transition: all var(--dur) var(--ease);
+}
+.tabs button:hover { color: var(--c-primary); }
+.tabs button.active { background: var(--c-bg); color: var(--c-primary); box-shadow: var(--shadow-sm); }
+@media (max-width: 639px) {
+  .tabs { width: 100%; overflow-x: auto; }
+  .tabs button { flex-shrink: 0; }
+}
+
+/* Kartın tamamını tıklanabilir yapan görünmez katman (ürün kartı) */
+.stretched::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+.product-card .btn, .product-card__foot { position: relative; z-index: 2; }
