@@ -1,2 +1,2 @@
 # aqua
-aqua-tech
+aqua-touch
