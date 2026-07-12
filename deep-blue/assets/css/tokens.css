@@ -3,37 +3,32 @@
    ============================================================ */
 
 :root {
-  /* ---------- Marka — "Obsidyen" (dark elegant) ---------- */
-  --c-ink:           #F2F7F8;   /* birincil CTA: buz beyazı dolgu */
-  --c-ink-hover:     #DCE9ED;
-  --c-ink-text:      #0B171C;   /* buz butonun üstündeki metin */
-  --c-primary:       #35BDF0;   /* logo cyan'ın dark-uyumlu tonu — link, ikon, mikro vurgu */
-  --c-primary-dark:  #5FCBF4;
-  --c-primary-soft:  rgb(53 189 240 / .10);
-  --c-deep:          #0F1E24;   /* yükseltilmiş koyu bantlar (stats) */
-  --c-deep-2:        #122730;
-  --c-accent:        #F2F7F8;
-  --c-accent-hover:  #DCE9ED;
-  --c-accent-soft:   rgb(255 255 255 / .06);
-  --c-green:         #58BE74;
-  --c-green-soft:    rgb(88 190 116 / .12);
+  /* ---------- Marka — "Derin Su" ---------- */
+  --c-ink:           #0E4C63;   /* birincil aksiyon — tüm CTA'lar */
+  --c-ink-hover:     #0B3E52;
+  --c-primary:       #00ADEF;   /* logo cyan — link, eyebrow, ince vurgu (kısık doz) */
+  --c-primary-dark:  #0090C9;
+  --c-primary-soft:  #E9F5FA;
+  --c-deep:          #0C2B33;   /* koyu bloklar, footer */
+  --c-deep-2:        #10333D;
+  --c-accent:        #0E4C63;   /* eski accent sınıfları mürekkebe düşer (HTML değişmez) */
+  --c-accent-hover:  #0B3E52;
+  --c-accent-soft:   #E8F1F4;
+  --c-green:         #3FA65C;
+  --c-green-soft:    #EBF6EE;
 
   /* ---------- Nötr ---------- */
-  --c-text:          #ECF2F4;
-  --c-text-muted:    #9AAEB6;
-  --c-text-light:    #6E838C;
-  --c-bg:            #0A1215;   /* obsidyen gövde */
-  --c-card:          #101B20;   /* kart yüzeyi */
-  --c-surface:       #0D171B;   /* alternatif section */
-  --c-inset:         #0B1519;   /* tabs vb. çukur yüzey */
-  --c-border:        rgb(255 255 255 / .08);
-  --c-tint-1:        #122026;   /* medya/placeholder degrade */
-  --c-tint-2:        #0E1A1F;
-  --c-hero-tint:     #0E1B21;
+  --c-text:          #182E38;
+  --c-text-muted:    #56707C;
+  --c-text-light:    #8AA0AA;
+  --c-bg:            #FAFBFC;   /* porselen gövde */
+  --c-card:          #FFFFFF;   /* kart yüzeyi */
+  --c-surface:       #F1F7F9;   /* sisli aqua section */
+  --c-border:        #E3ECEF;
 
   /* ---------- Durum ---------- */
-  --c-success: #58BE74;
-  --c-error:   #E36A5F;
+  --c-success: #3FA65C;
+  --c-error:   #C2453A;
 
   /* ---------- Tipografi ---------- */
   --font-display: "Sora", "Inter", system-ui, sans-serif;
@@ -60,9 +55,9 @@
   --r-sm: 8px; --r-md: 12px; --r-lg: 20px; --r-xl: 28px; --r-full: 999px;
 
   /* ---------- Gölge (neredeyse görünmez) ---------- */
-  --shadow-sm: 0 1px 2px rgb(0 0 0 / .3);
-  --shadow-md: 0 6px 18px rgb(0 0 0 / .35);
-  --shadow-lg: 0 16px 40px rgb(0 0 0 / .45);
+  --shadow-sm: 0 1px 2px rgb(12 43 51 / .05);
+  --shadow-md: 0 4px 12px rgb(12 43 51 / .06);
+  --shadow-lg: 0 12px 32px rgb(12 43 51 / .08);
   --shadow-primary: var(--shadow-sm);
   --shadow-accent:  var(--shadow-sm);
 
