@@ -1,0 +1,84 @@
+/* ============================================================
+   AQUA TOUCH — Design Tokens v2
+   ============================================================ */
+
+:root {
+  /* ---------- Marka — "Obsidyen" (dark elegant) ---------- */
+  --c-ink:           #F2F7F8;   /* birincil CTA: buz beyazı dolgu */
+  --c-ink-hover:     #DCE9ED;
+  --c-ink-text:      #0B171C;   /* buz butonun üstündeki metin */
+  --c-primary:       #35BDF0;   /* logo cyan'ın dark-uyumlu tonu — link, ikon, mikro vurgu */
+  --c-primary-dark:  #5FCBF4;
+  --c-primary-soft:  rgb(53 189 240 / .10);
+  --c-deep:          #0F1E24;   /* yükseltilmiş koyu bantlar (stats) */
+  --c-deep-2:        #122730;
+  --c-accent:        #F2F7F8;
+  --c-accent-hover:  #DCE9ED;
+  --c-accent-soft:   rgb(255 255 255 / .06);
+  --c-green:         #58BE74;
+  --c-green-soft:    rgb(88 190 116 / .12);
+
+  /* ---------- Nötr ---------- */
+  --c-text:          #ECF2F4;
+  --c-text-muted:    #9AAEB6;
+  --c-text-light:    #6E838C;
+  --c-bg:            #0A1215;   /* obsidyen gövde */
+  --c-card:          #101B20;   /* kart yüzeyi */
+  --c-surface:       #0D171B;   /* alternatif section */
+  --c-inset:         #0B1519;   /* tabs vb. çukur yüzey */
+  --c-border:        rgb(255 255 255 / .08);
+  --c-tint-1:        #122026;   /* medya/placeholder degrade */
+  --c-tint-2:        #0E1A1F;
+  --c-hero-tint:     #0E1B21;
+
+  /* ---------- Durum ---------- */
+  --c-success: #58BE74;
+  --c-error:   #E36A5F;
+
+  /* ---------- Tipografi ---------- */
+  --font-display: "Sora", "Inter", system-ui, sans-serif;
+  --font-sans:    "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --fs-xs:   0.8125rem;
+  --fs-sm:   0.9375rem;
+  --fs-base: 1rem;
+  --fs-md:   1.125rem;
+  --fs-lg:   1.375rem;
+  --fs-xl:   1.75rem;
+  --fs-2xl:  clamp(1.75rem, 1.2rem + 2vw, 2.5rem);    /* section başlık */
+  --fs-3xl:  clamp(2.25rem, 1.4rem + 3.2vw, 3.5rem);  /* hero */
+
+  --lh-tight: 1.12;
+  --lh-base:  1.7;
+
+  /* ---------- Spacing (4px taban) ---------- */
+  --sp-1: 4px;  --sp-2: 8px;   --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px;  --sp-8: 32px; --sp-10: 40px;
+  --sp-12: 48px; --sp-16: 64px; --sp-20: 80px; --sp-24: 96px; --sp-32: 128px;
+
+  /* ---------- Radius ---------- */
+  --r-sm: 8px; --r-md: 12px; --r-lg: 20px; --r-xl: 28px; --r-full: 999px;
+
+  /* ---------- Gölge (neredeyse görünmez) ---------- */
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / .3);
+  --shadow-md: 0 6px 18px rgb(0 0 0 / .35);
+  --shadow-lg: 0 16px 40px rgb(0 0 0 / .45);
+  --shadow-primary: var(--shadow-sm);
+  --shadow-accent:  var(--shadow-sm);
+
+  /* ---------- Motion ---------- */
+  --ease: cubic-bezier(.4, 0, .2, 1);
+  --ease-out: cubic-bezier(.16, 1, .3, 1);
+  --dur: 200ms;
+  --dur-slow: 500ms;
+
+  /* ---------- Layout ---------- */
+  --container: 1200px;
+  --gap: 24px;
+  --section-y: clamp(64px, 5vw + 40px, 112px);
+  --header-h: 76px;
+}
+
+@media (max-width: 767px) {
+  :root { --header-h: 64px; --gap: 16px; }
+}
