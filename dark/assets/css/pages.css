@@ -558,3 +558,12 @@
   transition: all var(--dur) var(--ease);
 }
 .slider__dots button.active { width: 24px; background: var(--c-primary); }
+
+/* ============ GERÇEK GÖRSELLER — açık tile (dark tema) ============ */
+.product-card__media { background: linear-gradient(180deg, #F3F7F8, #E9EFF1); }
+.product-card__media img { width: 100%; aspect-ratio: 1; object-fit: contain; }
+.hero__frame > img { width: 100%; aspect-ratio: 1000 / 1081; object-fit: cover; border-radius: var(--r-lg); }
+.product-gallery__main { background: linear-gradient(180deg, #F3F7F8, #E9EFF1); }
+.product-gallery__main img { width: 100%; aspect-ratio: 1; object-fit: contain; }
+.product-gallery__thumbs img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--r-md); border: 1px solid var(--c-border); }
+.slider__slide img.slide-visual { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--r-lg); border: 1px solid var(--c-border); }
