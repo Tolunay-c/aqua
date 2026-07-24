@@ -18,6 +18,10 @@
   transition: all var(--dur) var(--ease);
 }
 .btn:active { transform: scale(0.97); }
+.btn { height: 46px; padding-block: 0; }
+.btn--sm { height: 36px; padding-block: 0; }
+.btn--lg { height: 54px; padding-block: 0; }
+.btn svg { flex-shrink: 0; }
 .btn svg { width: 18px; height: 18px; transition: transform var(--dur) var(--ease); }
 
 
@@ -246,4 +250,4 @@
 
 /* Kartın tamamını tıklanabilir yapan görünmez katman (ürün kartı) */
 .stretched::after { content: ""; position: absolute; inset: 0; z-index: 1; }
-.product-card .btn, .product-card__foot { position: relative; z-index: 2; }
+.product-card__foot { pointer-events: none; }

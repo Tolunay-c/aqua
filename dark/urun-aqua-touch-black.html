@@ -55,6 +55,7 @@
         <li><a href="index.html">Anasayfa</a></li>
         <li><a href="urunler.html" class="active" aria-current="page">Ürünler</a></li>
         <li><a href="hakkimizda.html">Hakkımızda</a></li>
+        <li><a href="marka-tescil.html">Marka Tescil</a></li>
         <li><a href="iletisim.html">İletişim</a></li>
         <li><a class="nav-cta" href="teklif-al.html">Teklif Al</a></li>
       </ul>
@@ -74,13 +75,16 @@
 <section class="section" style="padding-top: var(--sp-12);">
   <div class="container">
     <div class="product-hero">
-      <div class="product-gallery">
+      <div class="product-gallery" data-gallery>
         <div class="product-gallery__main">
-          <img src="assets/img/p-black.webp" alt="Aqua Touch Black Su Yumuşatma Sistemi" loading="lazy">
+          <button class="gallery-nav gallery-nav--prev" type="button" aria-label="Önceki görsel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <button class="gallery-nav gallery-nav--next" type="button" aria-label="Sonraki görsel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+          <img src="assets/img/p-black.webp" alt="Aqua Touch Black Su Yumuşatma Sistemi">
         </div>
         <div class="product-gallery__thumbs">
-          <img src="assets/img/g-black-2.webp" alt="Ürün detay görseli" loading="lazy">
-          <img src="assets/img/g-dual-ring.webp" alt="Ürün detay görseli" loading="lazy">
+          <button type="button" class="active" aria-label="Görsel 1"><img src="assets/img/p-black.webp" alt="" loading="lazy"></button>
+          <button type="button" aria-label="Görsel 2"><img src="assets/img/g-black-2.webp" alt="" loading="lazy"></button>
+          <button type="button" aria-label="Görsel 3"><img src="assets/img/g-dual-ring.webp" alt="" loading="lazy"></button>
         </div>
       </div>
 
@@ -109,6 +113,20 @@
         </div>
         <p class="detail-prose" style="margin-top: var(--sp-6); color: var(--c-text-muted);">Aqua Touch Black, su kalitesini yükseltirken yaşam alanlarınıza uzun ömürlü koruma ve konfor sunan güvenilir bir su yumuşatma çözümüdür.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ÜRÜN VİDEOSU ============ -->
+<section class="section section--surface">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Video</span>
+      <h2>Ürün Tanıtım Videosu</h2>
+    </div>
+    <div class="video-wrap">
+      <!-- Bu ürünün YouTube videosu gelince: data-yt="VIDEO_ID" -->
+      <div class="video-embed" data-yt=""></div>
     </div>
   </div>
 </section>
@@ -188,6 +206,7 @@
         <h4>Kurumsal</h4>
         <ul>
           <li><a href="hakkimizda.html">Hakkımızda</a></li>
+        <li><a href="marka-tescil.html">Marka Tescil</a></li>
           <li><a href="iletisim.html">İletişim</a></li>
           <li><a href="teklif-al.html">Fiyat Teklifi Al</a></li>
           <li><a href="#">KVKK Aydınlatma Metni</a></li>

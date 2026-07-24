@@ -151,7 +151,7 @@
 .main-nav a {
   display: block;
   padding: var(--sp-2) var(--sp-4);
-  border-radius: var(--r-full);
+  border-radius: var(--r-md);
   color: var(--c-text);
   font-weight: 600;
   font-size: var(--fs-sm);

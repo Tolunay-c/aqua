@@ -559,11 +559,198 @@
 }
 .slider__dots button.active { width: 24px; background: var(--c-primary); }
 
-/* ============ GERÇEK GÖRSELLER — açık tile (dark tema) ============ */
-.product-card__media { background: linear-gradient(180deg, #F3F7F8, #E9EFF1); }
-.product-card__media img { width: 100%; aspect-ratio: 1; object-fit: contain; }
-.hero__frame > img { width: 100%; aspect-ratio: 1000 / 1081; object-fit: cover; border-radius: var(--r-lg); }
-.product-gallery__main { background: linear-gradient(180deg, #F3F7F8, #E9EFF1); }
-.product-gallery__main img { width: 100%; aspect-ratio: 1; object-fit: contain; }
+/* ============ GERÇEK GÖRSELLER — full-bleed (fotoğrafların kendi sanat yönetimi var) ============ */
+.product-card__media { padding: 0; background: var(--c-card); }
+.product-card__media img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+.hero__frame { padding: 0; overflow: hidden; }
+.hero__frame > img { width: 100%; aspect-ratio: 1000 / 1081; object-fit: cover; }
+.product-gallery__main { padding: 0; background: transparent; overflow: hidden; }
+.product-gallery__main img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
 .product-gallery__thumbs img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--r-md); border: 1px solid var(--c-border); }
 .slider__slide img.slide-visual { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--r-lg); border: 1px solid var(--c-border); }
+
+/* ============ YOUTUBE VİDEO BÖLÜMÜ ============ */
+.video-wrap { max-width: 880px; margin-inline: auto; }
+.video-embed {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  border: 1px solid var(--c-border);
+  background:
+    radial-gradient(500px 260px at 50% 20%, rgb(53 189 240 / .10), transparent 65%),
+    var(--c-card);
+  cursor: pointer;
+}
+.video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-embed .thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.video-embed .play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-4);
+  color: var(--c-text-muted);
+  transition: background var(--dur) var(--ease);
+}
+.video-embed:hover .play { background: rgb(0 0 0 / .15); }
+.video-embed .play-btn {
+  width: 76px;
+  height: 76px;
+  border-radius: var(--r-full);
+  background: var(--c-ink);
+  color: var(--c-ink-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 32px rgb(0 0 0 / .45);
+  transition: transform var(--dur) var(--ease);
+}
+.video-embed:hover .play-btn { transform: scale(1.07); }
+.video-embed .play-btn svg { width: 30px; height: 30px; margin-left: 4px; }
+.video-embed .play span { font-size: var(--fs-sm); font-weight: 600; }
+/* Video ID henüz yoksa (data-yt boş) */
+.video-embed.is-empty { cursor: default; }
+.video-embed.is-empty:hover .play { background: none; }
+.video-embed.is-empty .play-btn { background: rgb(255 255 255 / .07); color: var(--c-text-light); box-shadow: none; }
+.video-embed.is-empty:hover .play-btn { transform: none; }
+
+/* ============ MARKA TESCİL — BELGE KARTLARI ============ */
+.doc-grid { display: grid; gap: var(--gap); }
+.doc-card {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+  padding: var(--sp-6);
+  background: var(--c-card);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+}
+.doc-card__icon {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--r-md);
+  background: rgb(255 255 255 / .05);
+  color: var(--c-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.doc-card__icon svg { width: 28px; height: 28px; }
+.doc-card h3 { font-size: var(--fs-base); margin-bottom: 2px; }
+.doc-card p { font-size: var(--fs-xs); color: var(--c-text-light); }
+.doc-card .btn { margin-left: auto; flex-shrink: 0; }
+.doc-card.is-pending { opacity: .55; }
+.doc-card.is-pending .btn { pointer-events: none; opacity: .6; }
+
+
+
+/* ============ ÜRÜN GALERİ SLIDER'I ============ */
+.product-gallery__main { position: relative; }
+.product-gallery__main img { transition: opacity .25s var(--ease); }
+.product-gallery__main img.switching { opacity: 0; }
+
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-full);
+  background: rgb(10 18 21 / .65);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--dur) var(--ease);
+  z-index: 2;
+}
+.gallery-nav:hover { background: rgb(10 18 21 / .85); }
+.gallery-nav svg { width: 18px; height: 18px; }
+.gallery-nav--prev { left: var(--sp-4); }
+.gallery-nav--next { right: var(--sp-4); }
+
+.product-gallery__thumbs button {
+  padding: 0;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: border-color var(--dur) var(--ease), opacity var(--dur) var(--ease);
+  opacity: .55;
+}
+.product-gallery__thumbs button:hover { opacity: .85; }
+.product-gallery__thumbs button.active { border-color: var(--c-primary); opacity: 1; }
+.product-gallery__thumbs button img { border: none; border-radius: 0; display: block; }
+
+
+/* ============ RESPONSIVE DÜZELTMELER ============ */
+
+/* Yatay taşma emniyeti: grid/flex çocukları daralabilsin */
+.grid > *, .stats .container > *, .trust .container > * { min-width: 0; }
+html, body { overflow-x: clip; }
+
+/* --- Mobil: yığılan CTA butonları full-width (sol rag'i bitirir) --- */
+@media (max-width: 479px) {
+  .hero-actions { width: 100%; }
+  .hero-actions .btn { width: 100%; }
+}
+
+/* --- Stats: mobilde sıkışma --- */
+@media (max-width: 639px) {
+  .stats .container { grid-template-columns: 1fr 1fr; gap: var(--sp-8) var(--sp-4); padding-block: var(--sp-12); }
+  .stat__num { font-size: 1.9rem; }
+  .stat p { font-size: var(--fs-xs); }
+}
+@media (max-width: 359px) {
+  .stats .container { grid-template-columns: 1fr; }
+}
+
+/* --- Slider slide: mobil başlık ölçeği ve üst nefes --- */
+@media (max-width: 639px) {
+  .slider__slide h3 { font-size: var(--fs-xl); }
+  .slider__slide { padding-top: var(--sp-12); }
+}
+
+/* --- Belge kartı: dar ekranda dikey akış, buton full-width --- */
+.doc-grid { grid-template-columns: minmax(min(100%, 300px), 520px); }
+@media (max-width: 559px) {
+  .doc-card { flex-wrap: wrap; }
+  .doc-card > div { flex: 1; min-width: 0; }
+  .doc-card h3 { font-size: var(--fs-sm); }
+  .doc-card .btn { margin-left: 0; width: 100%; }
+}
+
+
+/* ============ RESPONSIVE DÜZELTMELER 2 ============ */
+
+/* --- 1) Dekoratif katmanlar tıklama yutmasın (sistem kuralı) --- */
+.cta-band::before,
+.hero::before,
+.page-head::after,
+.process__step:not(:last-child)::after { pointer-events: none; }
+
+/* --- 2) Tabs: mobilde eşit genişlikli 3 kolon, taşma yok --- */
+@media (max-width: 479px) {
+  .tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    overflow: visible;
+  }
+  .tabs button {
+    padding: 9px 4px;
+    font-size: 12.5px;
+    white-space: nowrap;
+    text-align: center;
+  }
+}
+
+/* --- 3) Uzun kelimeli başlıklar dar ekranda taşmasın --- */
+h1, h2, h3 { overflow-wrap: break-word; }
+@media (max-width: 479px) {
+  .page-head h1 { font-size: 1.75rem; }
+}

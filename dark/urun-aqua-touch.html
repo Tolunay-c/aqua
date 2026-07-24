@@ -55,6 +55,7 @@
         <li><a href="index.html">Anasayfa</a></li>
         <li><a href="urunler.html" class="active" aria-current="page">Ürünler</a></li>
         <li><a href="hakkimizda.html">Hakkımızda</a></li>
+        <li><a href="marka-tescil.html">Marka Tescil</a></li>
         <li><a href="iletisim.html">İletişim</a></li>
         <li><a class="nav-cta" href="teklif-al.html">Teklif Al</a></li>
       </ul>
@@ -74,20 +75,23 @@
 <section class="section" style="padding-top: var(--sp-12);">
   <div class="container">
     <div class="product-hero">
-      <div class="product-gallery">
+      <div class="product-gallery" data-gallery>
         <div class="product-gallery__main">
-          <img src="assets/img/p-aritma.webp" alt="Aqua Touch Su Arıtma Cihazı" loading="lazy">
+          <button class="gallery-nav gallery-nav--prev" type="button" aria-label="Önceki görsel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <button class="gallery-nav gallery-nav--next" type="button" aria-label="Sonraki görsel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+          <img src="assets/img/p-aritma.webp" alt="Aqua Touch Su Arıtma Cihazı">
         </div>
         <div class="product-gallery__thumbs">
-          <img src="assets/img/g-faucet-blue.webp" alt="Ürün detay görseli" loading="lazy">
-          <img src="assets/img/g-faucet-white.webp" alt="Ürün detay görseli" loading="lazy">
+          <button type="button" class="active" aria-label="Görsel 1"><img src="assets/img/p-aritma.webp" alt="" loading="lazy"></button>
+          <button type="button" aria-label="Görsel 2"><img src="assets/img/g-faucet-blue.webp" alt="" loading="lazy"></button>
+          <button type="button" aria-label="Görsel 3"><img src="assets/img/g-faucet-white.webp" alt="" loading="lazy"></button>
         </div>
       </div>
 
       <div class="product-info">
         <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg> Su Arıtma Cihazı</span>
         <div class="detail-prose" style="margin-top: var(--sp-4);">
-        <p><strong>Aqua Touch</strong>, 5 aşamalı filtrasyon sistemiyle şebeke suyunu güvenle içebileceğiniz kaliteye getirir. Meyve ve sebzelerinizi içilebilir suyla yıkayabilir; çay, kahve ve yemeklerinizde gönül rahatlığıyla kullanabilirsiniz. Her filtrasyon aşaması farklı bir görevi üstlenir:</p>
+        <p><strong>Aqua Touch</strong>, 5 aşamalı filtrasyon sistemiyle şebeke suyunu güvenle içebileceğiniz kaliteye getirir. Meyve ve sebzelerinizi içilebilir suyla yıkayabilir; çay, kahve ve yemeklerinizde gönül rahatlığıyla kullanabilirsiniz. Her filtrasyon aşaması farklı bir görev üstlenir.</p>
         </div>
         <div class="hero-actions" style="margin-block: var(--sp-6) var(--sp-8);">
           <a class="btn btn--accent btn--lg" href="teklif-al.html">Teklif Al <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
@@ -97,6 +101,7 @@
     </div>
   </div>
 </section>
+
 
 <section class="section section--surface">
   <div class="container">
@@ -111,6 +116,20 @@
         <li class="reveal"><h3>Membran Filtre — LG Chem 80 GPD</h3><p>Yüksek kaliteli 1. sınıf membran; arsenik, kurşun, bakır, baryum, krom, cıva, sodyum, kadmiyum, florür, nitrit ve selenyum gibi kirleticiler ile bakteri ve virüsleri atık bölümünden dışarı atarak güvenli içme suyu sağlar.</p></li>
         <li class="reveal"><h3>Coconut Post Karbon Tatlandırıcı Filtre</h3><p>Membrandan çıkan suyun ham içimini yumuşatır; suya dağ kaynağından çıkmış gibi hoş ve taze bir içim kazandırır. Yılda bir kez değiştirilmesi yeterlidir.</p></li>
     </ol>
+  </div>
+</section>
+
+<!-- ============ ÜRÜN VİDEOSU ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Video</span>
+      <h2>Ürün Tanıtım Videosu</h2>
+    </div>
+    <div class="video-wrap">
+      <!-- Bu ürünün YouTube videosu gelince: data-yt="VIDEO_ID" -->
+      <div class="video-embed" data-yt=""></div>
+    </div>
   </div>
 </section>
 
@@ -189,6 +208,7 @@
         <h4>Kurumsal</h4>
         <ul>
           <li><a href="hakkimizda.html">Hakkımızda</a></li>
+        <li><a href="marka-tescil.html">Marka Tescil</a></li>
           <li><a href="iletisim.html">İletişim</a></li>
           <li><a href="teklif-al.html">Fiyat Teklifi Al</a></li>
           <li><a href="#">KVKK Aydınlatma Metni</a></li>

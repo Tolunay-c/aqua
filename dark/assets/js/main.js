@@ -246,3 +246,70 @@ const Toast = (function () {
     });
   });
 })();
+
+/* ---------- YouTube lite embed ----------
+   Kullanım: <div class="video-embed" data-yt="VIDEO_ID"></div>
+   ID boşsa "yakında" durumu gösterilir; ID gelince tek attribute doldurulur.
+   Tıklamada iframe yüklenir (sayfa hızını korur), youtube-nocookie kullanılır. */
+(function () {
+  document.querySelectorAll(".video-embed").forEach((box) => {
+    const id = (box.dataset.yt || "").trim();
+
+    if (!id) {
+      box.classList.add("is-empty");
+      box.innerHTML =
+        '<div class="play"><span class="play-btn">' +
+        '<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>' +
+        '</span><span>Tanıtım videosu yakında</span></div>';
+      return;
+    }
+
+    box.innerHTML =
+      '<img class="thumb" src="https://i.ytimg.com/vi/' + id + '/hqdefault.jpg" alt="Video önizleme" loading="lazy">' +
+      '<div class="play"><span class="play-btn">' +
+      '<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>' +
+      '</span><span>Videoyu izle</span></div>';
+
+    box.addEventListener("click", () => {
+      box.innerHTML =
+        '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
+        '?autoplay=1&rel=0" title="Tanıtım videosu" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    }, { once: true });
+  });
+})();
+
+
+/* ---------- Ürün galeri slider'ı ---------- */
+(function () {
+  const g = document.querySelector("[data-gallery]");
+  if (!g) return;
+  const main = g.querySelector(".product-gallery__main > img");
+  const thumbs = [...g.querySelectorAll(".product-gallery__thumbs button")];
+  if (thumbs.length < 2) return;
+  const srcs = thumbs.map((b) => b.querySelector("img").src);
+  let i = 0;
+
+  function go(n) {
+    i = (n + srcs.length) % srcs.length;
+    main.classList.add("switching");
+    setTimeout(() => {
+      main.src = srcs[i];
+      main.classList.remove("switching");
+    }, 180);
+    thumbs.forEach((b, k) => b.classList.toggle("active", k === i));
+  }
+
+  thumbs.forEach((b, k) => b.addEventListener("click", () => go(k)));
+  g.querySelector(".gallery-nav--prev").addEventListener("click", () => go(i - 1));
+  g.querySelector(".gallery-nav--next").addEventListener("click", () => go(i + 1));
+
+  // Dokunmatik kaydırma
+  let sx = null;
+  main.parentElement.addEventListener("touchstart", (e) => { sx = e.touches[0].clientX; }, { passive: true });
+  main.parentElement.addEventListener("touchend", (e) => {
+    if (sx === null) return;
+    const dx = e.changedTouches[0].clientX - sx;
+    if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
+    sx = null;
+  }, { passive: true });
+})();
