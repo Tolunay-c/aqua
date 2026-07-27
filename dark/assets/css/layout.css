@@ -34,20 +34,15 @@
   letter-spacing: 0.14em;
   margin-bottom: var(--sp-4);
 }
-.section-head .eyebrow::before {
-  content: "";
-  width: 24px;
-  height: 2.5px;
-  border-radius: 2px;
-  background: var(--c-primary);
-  opacity: .4;
-}
+/* Eyebrow çizgileri — tek kural: iki taraf hep aynı görünür */
+.section-head .eyebrow::before,
 .section-head--center .eyebrow::after {
   content: "";
   width: 24px;
   height: 2.5px;
   border-radius: 2px;
   background: var(--c-primary);
+  opacity: .45;
 }
 .section-head p { margin-top: var(--sp-4); color: var(--c-text-muted); }
 
