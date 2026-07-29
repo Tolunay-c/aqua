@@ -79,7 +79,6 @@ const Toast = (function () {
 
   document.querySelectorAll("form[data-validate]").forEach((form) => {
     form.addEventListener("submit", (e) => {
-      e.preventDefault(); // statik demo: submit yok
       let ok = true;
 
       form.querySelectorAll("[data-rule]").forEach((el) => {
@@ -92,18 +91,31 @@ const Toast = (function () {
       });
 
       if (!ok) {
+        e.preventDefault();
         Toast.show("Lütfen işaretli alanları kontrol edin.", { type: "error", title: "Form eksik" });
         const first = form.querySelector(".is-invalid");
         if (first) first.focus();
         return;
       }
 
-      // Demo başarı akışı (PHP bağlanınca burası kalkacak)
-      Toast.show("Talebiniz alındı. Uzman ekibimiz en kısa sürede sizinle iletişime geçecek.", {
-        type: "success",
-        title: "Teşekkürler!"
-      });
-      form.reset();
+      // action yoksa (yerelde HTML olarak açıldıysa) eski demo akışı
+      if (!form.getAttribute("action")) {
+        e.preventDefault();
+        Toast.show("Talebiniz alındı. Uzman ekibimiz en kısa sürede sizinle iletişime geçecek.", {
+          type: "success",
+          title: "Teşekkürler!"
+        });
+        form.reset();
+        return;
+      }
+
+      // Geçerli: gonder.php'ye gönderiliyor — çift tıklamayı engelle
+      const submitBtn = form.querySelector('[type="submit"]');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = ".7";
+        submitBtn.textContent = "Gönderiliyor…";
+      }
     });
 
     form.addEventListener("input", (e) => {
@@ -312,4 +324,19 @@ const Toast = (function () {
     if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
     sx = null;
   }, { passive: true });
+})();
+
+
+/* ---------- Sunucudan dönen durum bildirimi (?durum=...) ---------- */
+(function () {
+  const durum = new URLSearchParams(location.search).get("durum");
+  if (!durum) return;
+  const mesaj = {
+    hata: ["Form eksik", "Lütfen zorunlu alanları doldurup tekrar deneyin.", "error"],
+    "cok-hizli": ["Biraz yavaş", "Az önce bir talep gönderdiniz. Lütfen bir dakika bekleyin.", "error"],
+    sunucu: ["Gönderilemedi", "Teknik bir sorun oluştu. Lütfen telefonla ulaşın.", "error"],
+  }[durum];
+  if (!mesaj) return;
+  Toast.show(mesaj[1], { type: mesaj[2], title: mesaj[0] });
+  history.replaceState(null, "", location.pathname);
 })();

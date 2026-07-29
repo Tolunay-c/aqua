@@ -98,7 +98,12 @@
       <div class="form-card">
         <h2>Teklif Formu</h2>
         <p>* ile işaretli alanlar zorunludur.</p>
-        <form data-validate novalidate>
+        <form data-validate novalidate action="gonder.php" method="post">
+          <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+            <label>Bu alanı boş bırakın <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+          </div>
+          <input type="hidden" name="source" value="teklif">
+          <input type="hidden" name="donus" value="teklif-al.html">
           <div class="form-grid-2">
             <div class="form-group">
               <label class="form-label" for="q-name">Ad Soyad <span class="req">*</span></label>
@@ -122,7 +127,7 @@
           </div>
           <div class="form-group form-check-group">
             <label class="form-check">
-              <input type="checkbox" data-rule="checked">
+              <input type="checkbox" name="kvkk" data-rule="checked">
               <span>Kişisel verilerimin işlenmesine ilişkin <a href="#">Aydınlatma Metni</a>'ni okudum ve kabul ediyorum. <span class="req">*</span></span>
             </label>
             <span class="form-error">Devam etmek için onaylamanız gerekir.</span>
